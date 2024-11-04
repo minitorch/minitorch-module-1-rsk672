@@ -104,9 +104,18 @@ def test_chain_rule4() -> None:
 @pytest.mark.task1_4
 def test_backprop1() -> None:
     # Example 1: F1(0, v)
-    var = minitorch.Scalar(0)
-    var2 = Function1.apply(0, var)
+    var = minitorch.Scalar(0) #id = 1
+    var2 = Function1.apply(0, var) #id = 3
+    
+    
+    print(f'{var.unique_id=} {var.parents=}')
+    print(f'{var2.unique_id=} {var2.parents=}')
+    
+    
     var2.backward(d_output=5)
+    
+
+    
     assert var.derivative == 5
 
 
