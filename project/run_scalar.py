@@ -56,7 +56,7 @@ class Linear(minitorch.Module):
         for i in range(n):
             for j in range(m):
                 y[i] += self.weights[i][j] * inputs[j]
-                
+
         for i in range(n):
             y[i] += self.bias[i]
 
