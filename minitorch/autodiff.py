@@ -1,6 +1,5 @@
 from dataclasses import dataclass
 from typing import Any, Iterable, List, Tuple
-from collections import deque
 
 from typing_extensions import Protocol
 
@@ -98,8 +97,6 @@ def backpropagate(variable: Variable, deriv: Any) -> None:
 
     variable_dict: dict[int, Any] = {}
     variables_sorted = topological_sort(variable)[::-1]
-    variables_sorted_ids = [v.unique_id for v in variables_sorted]
-    variables_parents = [[v.parents for v in variables_sorted]]
 
     variable_dict[variable.unique_id] = deriv
 

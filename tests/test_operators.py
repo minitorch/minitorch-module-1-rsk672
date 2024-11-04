@@ -161,7 +161,6 @@ def test_other(a: float, b: float, c: float) -> None:
         assert eq(a, c) == 1.0
 
 
-
 # ## Task 0.3  - Higher-order functions
 
 # These tests check that your higher-order functions obey basic
