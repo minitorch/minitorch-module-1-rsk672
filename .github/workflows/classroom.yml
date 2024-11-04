@@ -19,11 +19,12 @@ jobs:
       with:
         test-name: Setup
         setup-command: sudo -H pip3 install -qr requirements.txt; sudo -H pip3 install
-          flake8==5.0.4
+          flake8==5.0.4; sudo -H pip3 install mypy
         command: flake8 --ignore "N801, E203, E266, E501, W503, F812, E741, N803,
           N802, N806" minitorch/ tests/ project/; mypy minitorch/*
         timeout: 10
         max-score: 10
+        python-version: 3.10.6
     - name: Task 1.1
       id: task-1-1
       uses: classroom-resources/autograding-command-grader@v1
